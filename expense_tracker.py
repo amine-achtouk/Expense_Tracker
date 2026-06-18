@@ -128,7 +128,8 @@ def main_menu():
         print("1. add expense")
         print("2. list all expenses")
         print("3. view category totals")
-        print("4. Exit")
+        print("4. filter expenses by month")
+        print("5. Exit")
 
         choice = input("Choose an option(1 --> 4) : ").strip()
 
@@ -139,6 +140,8 @@ def main_menu():
         elif choice == "3":
             total_by_category()
         elif choice == "4":
+            filter_by_month()
+        elif choice == "5":
             print("saving data ....byye")
             save_data()
             break
