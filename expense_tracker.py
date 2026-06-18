@@ -72,6 +72,35 @@ def list_expenses():
             print(f"Amount : {exp['amount']} $, Category : {exp['category']}")
 
 
+def filter_by_month():
+    if not EXPENSES:
+        print("No expenses recorded yet.")
+        return
+
+    print("======= Filter Expenses by month ========")
+    year = input("Enter year (eg. 2026)").strip()
+    month = input("Enter month (eg. 06").strip()
+
+    period = f"{year}-{month}"
+    print(f"\nShowing expenses for {period} :")
+    print("-" * 50)
+
+    found = False
+    total_for_month = 0.0
+
+    for exp in EXPENSES:
+        if exp["date"].startswith(period):
+            print(f"Amount: {exp['amount']} $ , Category : {exp['category']}")
+            total_for_month += exp["amount"]
+            found = True
+
+    if not found:
+        print("No expenses found for this period.")
+    else:
+        print("-" * 50)
+        print(f"Total spending for {period}: {total_for_month:.2f}")
+
+
 def total_by_category():
     if not EXPENSES:
         print("no data to calculate")
